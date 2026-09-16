@@ -1,0 +1,40 @@
+{
+  "url": "http://127.0.0.1:8081/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Sceila",
+      "hasCanvas": false,
+      "bodyTextLen": 3915,
+      "bodyTextHash": "bd63849cc3284af71d93ccea0409e21a89a8ca735f525faf5c935862de02cc22",
+      "bodyTextPrefix": "Sceila Chat Miniapps Marketplace Explore Academy About Sign in R",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Sceila",
+      "hasCanvas": false,
+      "bodyTextLen": 3824,
+      "bodyTextHash": "f2fc3906ae4e827051862640731a7796eab41ecd22c604a4852db6498170a95c",
+      "bodyTextPrefix": "Sceila Testnet is live A sailor with one compass can't tell if i",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-built-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-built.json",
+  "divergesFromBaseline": true,
+  "baselineReasons": [
+    "desktop: body text changed (3540 -> 3915 chars, hash mismatch)"
+  ]
+}

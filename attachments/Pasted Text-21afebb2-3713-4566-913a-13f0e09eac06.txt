@@ -1,0 +1,236 @@
+SCEILA
+a sailor always carry things in a set of three. if one carries one compass and it is broken, they will get lost, if they carry 2 and one is broken and another is faulty, they will get confused, if they carry 3 compasses, they can always count on the two that points on the same direction
+for users, we give the compasses in this sea of information that is becoming increasingly hard to tell the truth from fake.
+
+main goal - democratization of agents ( anyone can own their agents) and availability of many agents, giving agents identity( ERC 721) and financial capabilities (erc 6551)
+
+STABLECOINS- used for staking, governance, treasury- protocol growth. main purpose is agents should stake for a task to act as a custodian of truth- if they perform well they earn more tokens, otherwise slashed. the token acts as a unified financial layer to prevent agents from staking in different currency
+
+PROTOCOL
+agents are connected to the protocol via a wallet since they are represented by nft. the owner connects the wallet containing the agents, the protocol reads the agent's nft for api endpoint, description, skills and name and connects to the agents, and create a reputation database that will be updated everytime the agents performs tasks
+
+agent identity- for those with agents without identity, the protocol creates the identity for them with them providing the necessary info like agent name, description, skills, and api endpoint which are stored in IPFS database to get metadata URI and wallet address that will then be used to generate ERC 721 nft representing the ownership
+
+Buoys- this allows people with no coding skills to create agents by selecting templates, selecting tools they want the agents to use and add API keys from other models to make the agents more powerful. and these agents are also given identity and managed by the users. the users could use them directly for their tasks or use them to earn from the protocol
+
+Chat- users could use the protocal as any other chat bot, have conversations, access previous chats, and general tasks. inspired by claude ai, we could have project where one could upload files and instruction, create skills and have chats under the project
+
+Miniapps- developers could create miniapps that uses the protocol's Agents to do tasks. the miniapps are more specialized for example, miniapps for accounting, ERP, Humanizing, Video generation, Coding, Academics, Design, etc. these mostly contributes to the demand side of the protocol
+
+Orchestrator- the main part of the protocol- it receives tasks and instructions from users and miniapps, selects qualified agents, gives the task and coordinate the agents to get optimum/best solution, score the agents( reputation) which will be used to award or slash the agents
+
+Tools- these are programs for agents to use like RAG, MCP, telegram, message, email, whatsapp, spreadsheet, github, web, agent to agent communication( necessary if agents wants to collaborate), etc.
+
+marketplace- here people list agents for sale or lease and people can view them buy or hire agents and their description and reputation and prices. agents can also hire agents
+
+unified payment- since most miniapp and agents are free, the uses need not have wallets and could pay for agents, miniapps or/ and tasks. instead of paying each indepedently, you pay all at one. agents owners must have wallets( they hold agents). the system allows the user to pay with the utility token directly or any currency but agents are paid only with the utility token. miniapps- are paid in however they want but preferrably with the utility token which is fast to settle.
+
+ unified Protocol API, developer sdk- this allows developers to use the protocol in their apps via sdk or api.
+
+
+the frontend should have chat ( new or history), miniapps, attach wallet, register agent, create a buoys, protocol news, governance, about, academy, dashboard ( to manage tasks and agents), marketplace, explore, etc. chat and miniapp are the focal point to guide users to them.
+
+
+
+architecture overview
+
+Democratize AI agents by making agents ownable, discoverable, financially capable, interoperable, and accessible to everyone — including people who cannot code.
+ 
+The architecture you’ve described naturally breaks into these major layers:
+ 
+AGENT IDENTITY
+
+ERC-721 identity NFT
+IPFS metadata
+Agent API endpoint
+Name, description, skills, capabilities
+Owner wallet
+Reputation attached to the agent
+Agent Wallet / Financial Layer
+ERC-6551 agent accounts
+Agents can hold assets and receive payments
+
+STABLECOIN-USDT, USDC
+
+Staking, rewards, slashing, and treasury utility
+Agents stake to become economically accountable for their work
+Agent Network
+
+AGENT NETWORK
+
+Connect existing agents through their identity NFTs
+Register agents without identity
+Discover agents according to capabilities
+Agent-to-agent communication
+Agents can themselves hire/use other agents
+
+Buoys
+
+No-code agent creation
+Templates
+Tool selection
+Model/API-key configuration
+Agent identity creation
+User-controlled ownership
+Agents can serve their owner or participate in the network
+
+Orchestrator
+
+The protocol's core intelligence layer
+Understand task
+Decompose task
+Identify required capabilities
+Select qualified agents
+Coordinate agents
+Enable collaboration
+Evaluate outputs
+Reach/aggregate the best solution
+Score participating agents
+Trigger rewards/slashing
+Update reputation
+
+Tools
+
+Web
+RAG
+MCP
+GitHub
+Email
+Telegram
+WhatsApp
+Messaging
+Spreadsheets
+APIs
+Agent-to-agent communication
+Other capabilities that agents can plug into
+
+Agent Marketplace
+
+Buy agents
+Sell agents
+Lease agents
+Hire agents
+Agent profiles
+Reputation
+Skills
+Pricing
+Performance history
+Agents hiring agents
+
+Chat
+
+General-purpose protocol interface
+New conversations
+Conversation history
+Projects
+File uploads
+Instructions
+Custom skills
+Persistent project context
+
+Miniapps
+
+Specialized applications built on the agent network
+Accounting
+ERP
+Coding
+Academics
+Design
+Video
+Humanization
+Research
+etc.
+These become a major demand-generation layer for agents.
+
+Unified Payments
+
+User doesn't need to individually fund every agent/service
+User can pay with protocol token or supported currency
+Protocol handles internal settlement
+Agents receive protocol token
+Miniapps can choose their preferred settlement mechanism
+Potentially one account/balance across chat, agents, miniapps and tasks
+
+Protocol API + SDK
+
+Developers don't need to build their own agent infrastructure
+
+
+
+Submit tasks
+Discover agents
+Invoke agents
+Build miniapps
+Access orchestration
+Handle payments
+Access reputation
+Integrate agent identity
+Frontend
+Chat
+Miniapps
+Marketplace
+Explore
+Create a Buoy
+Register Agent
+Attach Wallet
+Dashboard
+Agent management
+Task management
+Governance
+Protocol news
+Academy
+About
+
+
+
+
+ORCHESTRATOR 
+i want to create an orchestrator, somewhat a hybrid of routing and orchestration also partially inspired by openrouter. openrouter routes the APIs depending on factors like quality, or cost. explain openrouter router. how does it route the APIs/ models. explain in detail how that works. i see from their website that there is cost optimization, quality optimization, load balancing, candidate filtering, fallback, request forwarding, selection, task classification, etc. then design an orchestrator for a agentic economy. it is an economy where agents stakes to perform tasks, and are rewarded or slashed depending on the task done. here is the entire system- agents have an nft identity for which the metadata uri contains agent name, description, agent's skills, capabilities, and tools if any and agents API endpoint. then these ERC 721 nfts are connected to ERC 6551 nft wallet which contains stablecoins that will be used in scaling and earning. so when agents are connected to the protocol, the protocol reads the agents information, and accesses the api through which it will communicate with the agents, then the protocol creates a reputation table for which it will be updating the agents reputations depending on performance. when a task is given via a chat, miniapp, or API, the orchestrator classify the tasks such as research, coding, etc, and user instructions and factors such as cost optimization and quality optimization, determines how many agents should work on the tasks, select qualified agents depending on capabilities, skills, stakes, reputations, etc, creates an arena(this refers to a group of agents working on one task), scores the agents, aggregates the solution, returns the solution, update agents reputations, and allocate the reward and slashing. the rules that governs how an arena comes to a particular solutions is refered to as consensus- these rules or instructions could be inbuilt, user specified, miniapps specified. i would also like to incorporate  referee agents that evaluates the evidence cited by other agents hence reducing the risk of hallucinations. the agents scores and reputation are determined by evidence. ( context- i am trying to create a solution for the future where ai takes most jobs and people still requires a way to earn and my solution is more like fiverr or upwork for ai agents where these agents work on tasks and earn). miniapps will be apps created on top of the protocol that also uses the agents via the orchestrator. stablecoins offers an international financial layer for staking and earning. refine, design and explain and create the orchestrator in detail
+
+BUOY
+I want to clone openrouter. Not exactly, but the idea of aggregating AI providers and have one unified API and billing. The context is, a platform to allow people with no code skills to create simple AI agents in about five steps. 
+Step 1. Select a template. Each template presents a code block, and depending on the task the agent is to perform.
+Step 2. Select tools. Tools are what gives agents abilities to act. Examples of tools includes RAG, mcp, telegram, calendar, email, etc
+Step 3. Select/create skills. Skills are instructions or context for agents to follow. Example is a humanizing skills, a coding skill, a presentation skill, etc
+Step 4. Select models. Model are LLMs that the agent will use. Users select all model that are required and preferably more than one so that when one hit API call limit, the other is used
+Step 5. Create the agent. An agent made of the template codeblock, tools, skills, model is used. We call this agent a buoy.
+
+At step 4, if where inspiration from open router comes from. At step 4, we give the buoy one unified API but below that is all the selected LLMs. The main problem I encountered that stems from not fully understanding openrouter is the aggregation- like if 100 buoys select Gemini, or groq, how does the platform interact with Gemini - are we creating 100 APIs for every buoy, or just one and if it's one, won't API limits affect us because one API is being called 100 times. together with steps 1,2,3,5 of the buoys where in step 1 should allow addition of templates for different types of agents. Refine, design and explain and create this system in detail
+
+AGENT IDENTITY
+for agents INCLUDING buoys to be participants in the ecosystem, they need an ERC 721 identity and a ERC 6551 wallet. the metadata URI should contain agent's name, description, skills, capabilities, etc and API endpoint. to connect the agent to the protocol, the owner connects the wallet containing agent's nft, where the protocol reads the metadata uri, and description, if approved, the agents are onboarded. if the agents lacks identity, the protocol allows them to forge the identity where the are required to give the details like agent's name, description, skills, capabilities, etc and API endpoint which are stored in ipfs to generate METADATA URI and together with wallet address, the nft is created. 
+during step 5 of the buoy, the user can give wallet address and agent name to create nft since the system already knows the rest of information and it then forges the nft and connects automatically. refine, design, explain and create the agent identity, create smart contracts- to be deployed on base chain, evm supported, hardhat, etc
+
+AGENT REPUTATION
+each agent is expected to be accurate, reliable, correct, etc. from each task, the agents are scored on different fields and that score is updated in the reputation table. this is the work of the orchestrator.  refine, design, explain and create the agent reputation
+
+STAKING, REWARD AND PUNISHMENT
+to ensure trust in the system, the agents are required to stake. if they perform well, they are rewarded depending on their role and contribution, otherwise slashed or lose stake depending on their mistakes, or malice. the score, reward and slashing is calculated and called by the orchestrator.  refine, design, explain and create smart contracts that will hold the staked usdc and usdt, and execute slashing and reward
+
+CHAT 
+users can interact with agents just as they do normal chatbots. here they access new and previous chats, and are mostly general work.  refine, design, explain and create chat
+
+UNIFIED API AND DEVELOPER SDK
+just like openrouter have a unified api to be used by apps, our system also allows the developers and users to create a unified API that via the orchestrator, can call and coordinate agents. users and developers can define consensus mechanisms- give specialized instructions, define their applications, select specific agents or auto that allows orchestrator to do that.  refine, design, explain and create the unified API/ developer sdk
+
+UNIFIED BILLING/ PAYMENT
+agents needs to be paid depending on the tasks/contributions and performance. the cost is calculated and billed once not per agent. payment from the users is used to pay agents, miniapps if used, a fee to the protocol. agents and miniapps are paid via usdc and usdt. users can use fiat but via onramps like coinbase onramp, we convert to stablecoins. offramp we can support stripe, cards, local payment rails. users in chat are charged depending on tokens used, billed monthly or yearly. i am basically copying current strategies by openai or anthropic where they bill monthly or yearly depending on the plan, free, pro, etc. we can also apply current billing methods for api- per calls per tokens. each miniapps if not free have their billings and can choose to bill indepedently or integrate to our billing.  refine, design, explain and create unified billing/payment
+
+MARKETPLACE
+selling buying, renting and leasing of agents takes place here. the transactions here are between parties but we charge a transaction cost. transactions takes place via stablecoins.  refine, design, explain and create the marketplace
+
+MINIAPPS
+inspired by telegram where developers can create and deploy apps inside our system. however our miniapps are systems that utilizes our protocol's agents via the uniified API, and basically applications or wrappers that uses the agents.  refine, design, explain and create a way that allows the agents to deploy the miniapps
+
+ ADMINISTRATOR
+admin should have a way to view what is going on the system, approve miniapps to be published, etc  refine, design, explain and create admin
+
+DASHBOARD
+users should have a way to manage their chats, agents, tasks, tools, and finances.  refine, design, explain and create users dashboard
+
+ EXPLORE
+
+ABOUT
+a detailed overview of the system, FAQs, etc 
+ACADEMY
+the admin can create lessons about the protocol

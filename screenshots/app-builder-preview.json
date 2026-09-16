@@ -1,0 +1,36 @@
+{
+  "url": "http://127.0.0.1:8080/",
+  "viewports": {
+    "desktop": {
+      "width": 1280,
+      "height": 800,
+      "status": 200,
+      "title": "Sceila",
+      "hasCanvas": false,
+      "bodyTextLen": 3540,
+      "bodyTextHash": "7a38ab4f3dd5d9c688df5edf329fb1e7050da71b78c2b6e3e732cc448cdffb6a",
+      "bodyTextPrefix": "Sceila Chat Miniapps Marketplace Explore Academy About Testnet i",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview.png"
+    },
+    "mobile": {
+      "width": 390,
+      "height": 844,
+      "status": 200,
+      "title": "Sceila",
+      "hasCanvas": false,
+      "bodyTextLen": 3492,
+      "bodyTextHash": "9a2af709eaa75e489fc9e0765bf714a35740615ded87a4d0089c0b22f386d9f7",
+      "bodyTextPrefix": "Sceila Testnet is live A sailor with one compass can't tell if i",
+      "horizontalOverflow": false,
+      "consoleErrors": [],
+      "pageErrors": [],
+      "screenshot": "/workspace/screenshots/app-builder-preview-mobile.png"
+    }
+  },
+  "brandWarnings": [],
+  "authWarnings": [],
+  "verdictFile": "/workspace/screenshots/app-builder-preview.json"
+}
