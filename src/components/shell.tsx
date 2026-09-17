@@ -36,6 +36,7 @@ const FOOTER = {
   Build: [
     { to: "/academy", label: "Academy" },
     { to: "/developers", label: "API" },
+    { to: "/token", label: "Contracts" },
     { to: "/news", label: "News" },
     { to: "/admin", label: "Ops" },
   ],

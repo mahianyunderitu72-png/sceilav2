@@ -1,4 +1,4 @@
-import { x as require_jsx_runtime } from "../_libs/@tanstack/react-router+[...].mjs";
+import { a as require_jsx_runtime } from "../_libs/@radix-ui/react-collection+[...].mjs";
 import { _ as Clapperboard, a as Ship, c as PenLine, g as CodeXml, h as Compass, l as Palette, m as GraduationCap, o as Scale, p as Headset, r as TrendingUp, u as Newspaper, v as BookOpen } from "../_libs/lucide-react.mjs";
 //#region node_modules/.nitro/vite/services/ssr/assets/miniapp-icon-_iJVDqZQ.js
 var import_jsx_runtime = require_jsx_runtime();

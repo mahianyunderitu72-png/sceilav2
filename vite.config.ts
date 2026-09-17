@@ -166,6 +166,34 @@ function authPopupPlugin(): Plugin {
   };
 }
 
+function expressProtocolPlugin(): Plugin {
+  return {
+    name: "sceila-express-protocol",
+    apply: "serve",
+    configureServer(server) {
+      server.middlewares.use(async (req, res, next) => {
+        const pathOnly = (req.url ?? "").split("?")[0] ?? "";
+        if (!pathOnly.startsWith("/api/v1")) {
+          next();
+          return;
+        }
+        try {
+          const mod = (await server.ssrLoadModule("/src/lib/server/express-app.ts")) as {
+            handleConnect: (
+              req: typeof req,
+              res: typeof res,
+              next: typeof next,
+            ) => void;
+          };
+          mod.handleConnect(req, res, next);
+        } catch (err) {
+          next(err);
+        }
+      });
+    },
+  };
+}
+
 // `0.0.0.0:8080` is the live-preview contract — don't change host/port.
 // The dev server starts once `src/router.tsx` and `src/routes/` exist — see
 // AGENTS.md § "First scaffold".
@@ -184,6 +212,7 @@ export default defineConfig(({ command, isPreview }) => ({
   plugins: [
     pgliteBootstrapPlugin(),
     pglitePreviewAssetsPlugin(),
+    expressProtocolPlugin(),
     // Before tanstackStart so /auth/popup never falls through to the SPA.
     authPopupPlugin(),
     // Dev-only /__app-env, read by scripts/check-auth-invariant.mjs.

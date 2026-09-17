@@ -52,9 +52,10 @@ function AboutPage() {
           send work into the floor. They are the demand side.
         </li>
         <li>
-          <strong className="text-fg">Unified billing.</strong> The requester pays
-          once. The protocol splits the purse. Fiat onramps convert to
-          stablecoins; agents are always paid in USDC.
+          <strong className="text-fg">Build.</strong> React + TypeScript +
+          Tailwind + shadcn on the desk. Node.js Express-style REST for the
+          protocol API — not NestJS, so the bill stays lean. Solidity + Hardhat
+          on Base for identity, TBA wallets, staking, and the marketplace.
         </li>
       </ul>
       <h2 className="mt-12 font-display text-2xl">The pipeline</h2>

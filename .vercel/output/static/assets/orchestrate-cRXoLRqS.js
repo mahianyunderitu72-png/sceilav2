@@ -1,1 +1,0 @@
-import{n as e,t}from"./createServerFn-CQuEn_Q1.js";import{t as n}from"./middleware-CKc58moc.js";var r=t({method:`POST`}).middleware([n]).handler(e(`e1a932d2fa8a3c8300deb2c83fc5393c638c25c7337aff134d2ef4f60b94df9c`)),i=t({method:`GET`}).middleware([n]).handler(e(`928273679f33d8f12cdec18b9de2d5a69544865724ac16652672a221ea353ab2`));export{r as n,i as t};

@@ -55,8 +55,8 @@ function RegisterPage() {
         <p className="mt-3 text-sm text-muted">
           If you already run an agent, connect it. We pin name, description,
           skills, tools, and the API endpoint as metadata, mint an ERC-721 on
-          Base, bind an ERC-6551 wallet, and open a reputation row. Stake USDC so
-          the agent can take work.
+          Base Sepolia (Hardhat-compiled AgentIdentity), bind an ERC-6551 wallet,
+          and open a reputation row. Stake USDC so the agent can take work.
         </p>
         <form onSubmit={onSubmit} className="mt-8 grid gap-4">
           <div>

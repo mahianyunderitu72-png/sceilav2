@@ -36,6 +36,8 @@ import { Route as MiniappsSlugRouteImport } from './routes/miniapps.$slug'
 import { Route as NewsIndexRouteImport } from './routes/news.index'
 import { Route as NewsSlugRouteImport } from './routes/news.$slug'
 import { Route as ApiAuthSplatRouteImport } from './routes/api/auth/$'
+import { Route as ApiV1IndexRouteImport } from './routes/api/v1.index'
+import { Route as ApiV1SplatRouteImport } from './routes/api/v1/$'
 
 const IndexRoute = IndexRouteImport.update({
   id: '/',
@@ -172,6 +174,16 @@ const ApiAuthSplatRoute = ApiAuthSplatRouteImport.update({
   path: '/api/auth/$',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ApiV1IndexRoute = ApiV1IndexRouteImport.update({
+  id: '/api/v1/',
+  path: '/api/v1/',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ApiV1SplatRoute = ApiV1SplatRouteImport.update({
+  id: '/api/v1/$',
+  path: '/api/v1/$',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -201,6 +213,8 @@ export interface FileRoutesByFullPath {
   '/miniapps/': typeof MiniappsIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/v1/$': typeof ApiV1SplatRoute
+  '/api/v1/': typeof ApiV1IndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -226,6 +240,8 @@ export interface FileRoutesByTo {
   '/miniapps': typeof MiniappsIndexRoute
   '/news': typeof NewsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/v1/$': typeof ApiV1SplatRoute
+  '/api/v1': typeof ApiV1IndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -256,6 +272,8 @@ export interface FileRoutesById {
   '/miniapps/': typeof MiniappsIndexRoute
   '/news/': typeof NewsIndexRoute
   '/api/auth/$': typeof ApiAuthSplatRoute
+  '/api/v1/$': typeof ApiV1SplatRoute
+  '/api/v1/': typeof ApiV1IndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -287,6 +305,8 @@ export interface FileRouteTypes {
     | '/miniapps/'
     | '/news/'
     | '/api/auth/$'
+    | '/api/v1/$'
+    | '/api/v1/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -312,6 +332,8 @@ export interface FileRouteTypes {
     | '/miniapps'
     | '/news'
     | '/api/auth/$'
+    | '/api/v1/$'
+    | '/api/v1'
   id:
     | '__root__'
     | '/'
@@ -341,6 +363,8 @@ export interface FileRouteTypes {
     | '/miniapps/'
     | '/news/'
     | '/api/auth/$'
+    | '/api/v1/$'
+    | '/api/v1/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -363,6 +387,8 @@ export interface RootRouteChildren {
   WaitlistRoute: typeof WaitlistRoute
   AgentsSlugRoute: typeof AgentsSlugRoute
   ApiAuthSplatRoute: typeof ApiAuthSplatRoute
+  ApiV1SplatRoute: typeof ApiV1SplatRoute
+  ApiV1IndexRoute: typeof ApiV1IndexRoute
 }
 
 declare module '@tanstack/react-router' {
@@ -556,6 +582,20 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ApiAuthSplatRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/api/v1/': {
+      id: '/api/v1/'
+      path: '/api/v1'
+      fullPath: '/api/v1/'
+      preLoaderRoute: typeof ApiV1IndexRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/api/v1/$': {
+      id: '/api/v1/$'
+      path: '/api/v1/$'
+      fullPath: '/api/v1/$'
+      preLoaderRoute: typeof ApiV1SplatRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -630,6 +670,8 @@ const rootRouteChildren: RootRouteChildren = {
   WaitlistRoute: WaitlistRoute,
   AgentsSlugRoute: AgentsSlugRoute,
   ApiAuthSplatRoute: ApiAuthSplatRoute,
+  ApiV1SplatRoute: ApiV1SplatRoute,
+  ApiV1IndexRoute: ApiV1IndexRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)

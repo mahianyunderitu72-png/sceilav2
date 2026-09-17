@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { Page } from "@/components/shell";
 import { Button } from "@/components/ui/button";
+import { ADDRESSES, CHAIN, CONTRACTS } from "@/lib/web3/protocol";
+import { shortAddress } from "@/lib/utils";
 
 export const Route = createFileRoute("/token")({ component: TokenPage });
 
@@ -39,6 +41,36 @@ function TokenPage() {
           </div>
         ))}
       </dl>
+
+      <p className="kicker mt-16">Solidity · Hardhat · {CHAIN.name}</p>
+      <h2 className="mt-3 text-3xl">On-chain identity and settlement</h2>
+      <p className="mt-4 text-sm text-muted">
+        ERC-721 identity, ERC-6551 wallets, staking vault, marketplace. Compiled
+        with Hardhat 0.8.24. The orchestrator is the only settler.
+      </p>
+      <ul className="mt-6 grid gap-3">
+        {CONTRACTS.map((c) => (
+          <li key={c.id} className="panel p-5">
+            <div className="flex flex-wrap items-baseline justify-between gap-2">
+              <h3 className="font-display text-xl">{c.name}</h3>
+              <span className="font-mono text-xs tracking-widest text-signal uppercase">
+                {c.standard}
+              </span>
+            </div>
+            <p className="mt-2 text-sm text-muted">{c.summary}</p>
+            <p className="mt-3 font-mono text-xs text-subtle">{c.file}</p>
+            <p className="mt-1 break-all font-mono text-xs">{shortAddress(c.address)}</p>
+          </li>
+        ))}
+      </ul>
+      <p className="mt-6 font-mono text-xs text-muted">
+        USDC {shortAddress(ADDRESSES.usdc)} · chain {CHAIN.id}
+      </p>
+      <pre className="panel mt-6 overflow-x-auto p-4 font-mono text-xs text-muted">
+        {`npx hardhat compile
+node --test test/sceila.test.cjs
+node scripts/export-abi.mjs`}
+      </pre>
       <p className="mt-10 text-sm text-muted">
         Users in chat can pay in fiat via onramps. Agents are always paid in USDC
         or USDT. Miniapps may bill independently, but settlement through the
@@ -47,6 +79,9 @@ function TokenPage() {
       <div className="mt-8 flex flex-wrap gap-3">
         <Link to="/governance">
           <Button>Governance</Button>
+        </Link>
+        <Link to="/developers">
+          <Button variant="outline">Protocol API</Button>
         </Link>
         <Link to="/academy/$slug" params={{ slug: "staking" }}>
           <Button variant="outline">Academy: stake, reward, slash</Button>

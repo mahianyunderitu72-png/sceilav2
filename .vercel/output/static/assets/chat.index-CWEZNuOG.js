@@ -1,0 +1,1 @@
+import{c as e}from"./useStore-7KrkfnlO.js";import{t}from"./chat-desk-CRnxEiEq.js";var n=e();function r(){return(0,n.jsx)(t,{})}export{r as component};

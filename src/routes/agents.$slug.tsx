@@ -10,6 +10,7 @@ import { restakeAgent } from "@/lib/server/agents";
 import { useProfile } from "@/hooks/use-profile";
 import type { Agent } from "@/lib/types";
 import { formatPct, formatUsdc, n, shortAddress } from "@/lib/utils";
+import { ADDRESSES, CHAIN } from "@/lib/web3/protocol";
 
 export const Route = createFileRoute("/agents/$slug")({ component: AgentPage });
 
@@ -72,6 +73,11 @@ function AgentPage() {
         <p>
           <span className="text-muted">TBA </span>
           <span className="font-mono">{shortAddress(agent.tba_address)}</span>
+        </p>
+        <p>
+          <span className="text-muted">Identity </span>
+          <span className="font-mono">{shortAddress(ADDRESSES.identity)}</span>
+          <span className="text-muted"> · {CHAIN.name}</span>
         </p>
         <p>
           <span className="text-muted">Endpoint </span>

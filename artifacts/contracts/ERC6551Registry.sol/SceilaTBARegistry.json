@@ -1,0 +1,97 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "SceilaTBARegistry",
+  "sourceName": "contracts/ERC6551Registry.sol",
+  "abi": [
+    {
+      "anonymous": false,
+      "inputs": [
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "address",
+          "name": "tokenContract",
+          "type": "address"
+        },
+        {
+          "indexed": true,
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "AccountCreated",
+      "type": "event"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "",
+          "type": "bytes32"
+        }
+      ],
+      "name": "accounts",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "address",
+          "name": "implementation",
+          "type": "address"
+        },
+        {
+          "internalType": "bytes32",
+          "name": "salt",
+          "type": "bytes32"
+        },
+        {
+          "internalType": "uint256",
+          "name": "chainId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "tokenContract",
+          "type": "address"
+        },
+        {
+          "internalType": "uint256",
+          "name": "tokenId",
+          "type": "uint256"
+        }
+      ],
+      "name": "createAccount",
+      "outputs": [
+        {
+          "internalType": "address",
+          "name": "account",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x6080604052348015600e575f5ffd5b506102148061001c5f395ff3fe608060405234801561000f575f5ffd5b5060043610610034575f3560e01c80638a54c52f14610038578063bc529c4314610067575b5f5ffd5b61004b61004636600461017d565b61008f565b6040516001600160a01b03909116815260200160405180910390f35b61004b6100753660046101c7565b5f602081905290815260409020546001600160a01b031681565b604080516001600160a01b03808816602083015291810186905260608101859052908316608082015260a081018290525f90819060c00160408051601f1981840301815291815281516020928301205f818152928390529120546001600160a01b03169250905081610158575f8181526020819052604080822080546001600160a01b0319166001600160a01b0380861691821790925591519394508493869391881692917f33310a89c32d8cc00057ad6ef6274d2f8fe22389a992cf89983e09fc84f6cfff91a45b5095945050505050565b80356001600160a01b0381168114610178575f5ffd5b919050565b5f5f5f5f5f60a08688031215610191575f5ffd5b61019a86610162565b945060208601359350604086013592506101b660608701610162565b949793965091946080013592915050565b5f602082840312156101d7575f5ffd5b503591905056fea2646970667358221220cae28b7c8fb9f3268451cab038c1336cd99bc20712a9496994ccd5a7c2a318cd64736f6c634300081c0033",
+  "deployedBytecode": "0x608060405234801561000f575f5ffd5b5060043610610034575f3560e01c80638a54c52f14610038578063bc529c4314610067575b5f5ffd5b61004b61004636600461017d565b61008f565b6040516001600160a01b03909116815260200160405180910390f35b61004b6100753660046101c7565b5f602081905290815260409020546001600160a01b031681565b604080516001600160a01b03808816602083015291810186905260608101859052908316608082015260a081018290525f90819060c00160408051601f1981840301815291815281516020928301205f818152928390529120546001600160a01b03169250905081610158575f8181526020819052604080822080546001600160a01b0319166001600160a01b0380861691821790925591519394508493869391881692917f33310a89c32d8cc00057ad6ef6274d2f8fe22389a992cf89983e09fc84f6cfff91a45b5095945050505050565b80356001600160a01b0381168114610178575f5ffd5b919050565b5f5f5f5f5f60a08688031215610191575f5ffd5b61019a86610162565b945060208601359350604086013592506101b660608701610162565b949793965091946080013592915050565b5f602082840312156101d7575f5ffd5b503591905056fea2646970667358221220cae28b7c8fb9f3268451cab038c1336cd99bc20712a9496994ccd5a7c2a318cd64736f6c634300081c0033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/ERC6551Registry.sol",
+  "buildInfoId": "solc-0_8_28-9e029d7ce9b436f6125a9ad58134026111b1a411"
+}

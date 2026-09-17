@@ -1,1 +1,0 @@
-import{c as e}from"./useStore-7KrkfnlO.js";import{t}from"./chat-desk-BJrDUcfy.js";import{r as n}from"./index-DLiX72he.js";var r=e();function i(){let{id:e}=n.useParams();return(0,r.jsx)(t,{activeId:Number(e)})}export{i as component};

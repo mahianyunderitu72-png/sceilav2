@@ -1,0 +1,50 @@
+ORCHESTRATOR 
+i want to create an orchestrator, somewhat a hybrid of routing and orchestration also partially inspired by openrouter. openrouter routes the APIs depending on factors like quality, or cost. explain openrouter router. how does it route the APIs/ models. explain in detail how that works. i see from their website that there is cost optimization, quality optimization, load balancing, candidate filtering, fallback, request forwarding, selection, task classification, etc. then design an orchestrator for a agentic economy. it is an economy where agents stakes to perform tasks, and are rewarded or slashed depending on the task done. here is the entire system- agents have an nft identity for which the metadata uri contains agent name, description, agent's skills, capabilities, and tools if any and agents API endpoint. then these ERC 721 nfts are connected to ERC 6551 nft wallet which contains stablecoins that will be used in scaling and earning. so when agents are connected to the protocol, the protocol reads the agents information, and accesses the api through which it will communicate with the agents, then the protocol creates a reputation table for which it will be updating the agents reputations depending on performance. when a task is given via a chat, miniapp, or API, the orchestrator classify the tasks such as research, coding, etc, and user instructions and factors such as cost optimization and quality optimization, determines how many agents should work on the tasks, select qualified agents depending on capabilities, skills, stakes, reputations, etc, creates an arena(this refers to a group of agents working on one task), scores the agents, aggregates the solution, returns the solution, update agents reputations, and allocate the reward and slashing. the rules that governs how an arena comes to a particular solutions is refered to as consensus- these rules or instructions could be inbuilt, user specified, miniapps specified. i would also like to incorporate  referee agents that evaluates the evidence cited by other agents hence reducing the risk of hallucinations. the agents scores and reputation are determined by evidence. ( context- i am trying to create a solution for the future where ai takes most jobs and people still requires a way to earn and my solution is more like fiverr or upwork for ai agents where these agents work on tasks and earn). miniapps will be apps created on top of the protocol that also uses the agents via the orchestrator. stablecoins offers an international financial layer for staking and earning. refine, design and explain and create the orchestrator in detail
+
+BUOY
+I want to clone openrouter. Not exactly, but the idea of aggregating AI providers and have one unified API and billing. The context is, a platform to allow people with no code skills to create simple AI agents in about five steps. 
+Step 1. Select a template. Each template presents a code block, and depending on the task the agent is to perform.
+Step 2. Select tools. Tools are what gives agents abilities to act. Examples of tools includes RAG, mcp, telegram, calendar, email, etc
+Step 3. Select/create skills. Skills are instructions or context for agents to follow. Example is a humanizing skills, a coding skill, a presentation skill, etc
+Step 4. Select models. Model are LLMs that the agent will use. Users select all model that are required and preferably more than one so that when one hit API call limit, the other is used
+Step 5. Create the agent. An agent made of the template codeblock, tools, skills, model is used. We call this agent a buoy.
+
+At step 4, if where inspiration from open router comes from. At step 4, we give the buoy one unified API but below that is all the selected LLMs. The main problem I encountered that stems from not fully understanding openrouter is the aggregation- like if 100 buoys select Gemini, or groq, how does the platform interact with Gemini - are we creating 100 APIs for every buoy, or just one and if it's one, won't API limits affect us because one API is being called 100 times. together with steps 1,2,3,5 of the buoys where in step 1 should allow addition of templates for different types of agents. Refine, design and explain and create this system in detail
+
+AGENT IDENTITY
+for agents INCLUDING buoys to be participants in the ecosystem, they need an ERC 721 identity and a ERC 6551 wallet. the metadata URI should contain agent's name, description, skills, capabilities, etc and API endpoint. to connect the agent to the protocol, the owner connects the wallet containing agent's nft, where the protocol reads the metadata uri, and description, if approved, the agents are onboarded. if the agents lacks identity, the protocol allows them to forge the identity where the are required to give the details like agent's name, description, skills, capabilities, etc and API endpoint which are stored in ipfs to generate METADATA URI and together with wallet address, the nft is created. 
+during step 5 of the buoy, the user can give wallet address and agent name to create nft since the system already knows the rest of information and it then forges the nft and connects automatically. refine, design, explain and create the agent identity, create smart contracts- to be deployed on base chain, evm supported, hardhat, etc
+
+AGENT REPUTATION
+each agent is expected to be accurate, reliable, correct, etc. from each task, the agents are scored on different fields and that score is updated in the reputation table. this is the work of the orchestrator.  refine, design, explain and create the agent reputation
+
+STAKING, REWARD AND PUNISHMENT
+to ensure trust in the system, the agents are required to stake. if they perform well, they are rewarded depending on their role and contribution, otherwise slashed or lose stake depending on their mistakes, or malice. the score, reward and slashing is calculated and called by the orchestrator.  refine, design, explain and create smart contracts that will hold the staked usdc and usdt, and execute slashing and reward
+
+CHAT 
+users can interact with agents just as they do normal chatbots. here they access new and previous chats, and are mostly general work.  refine, design, explain and create chat
+
+UNIFIED API AND DEVELOPER SDK
+just like openrouter have a unified api to be used by apps, our system also allows the developers and users to create a unified API that via the orchestrator, can call and coordinate agents. users and developers can define consensus mechanisms- give specialized instructions, define their applications, select specific agents or auto that allows orchestrator to do that.  refine, design, explain and create the unified API/ developer sdk
+
+UNIFIED BILLING/ PAYMENT
+agents needs to be paid depending on the tasks/contributions and performance. the cost is calculated and billed once not per agent. payment from the users is used to pay agents, miniapps if used, a fee to the protocol. agents and miniapps are paid via usdc and usdt. users can use fiat but via onramps like coinbase onramp, we convert to stablecoins. offramp we can support stripe, cards, local payment rails. users in chat are charged depending on tokens used, billed monthly or yearly. i am basically copying current strategies by openai or anthropic where they bill monthly or yearly depending on the plan, free, pro, etc. we can also apply current billing methods for api- per calls per tokens. each miniapps if not free have their billings and can choose to bill indepedently or integrate to our billing.  refine, design, explain and create unified billing/payment
+
+MARKETPLACE
+selling buying, renting and leasing of agents takes place here. the transactions here are between parties but we charge a transaction cost. transactions takes place via stablecoins.  refine, design, explain and create the marketplace
+
+MINIAPPS
+inspired by telegram where developers can create and deploy apps inside our system. however our miniapps are systems that utilizes our protocol's agents via the uniified API, and basically applications or wrappers that uses the agents.  refine, design, explain and create a way that allows the agents to deploy the miniapps
+
+ ADMINISTRATOR
+admin should have a way to view what is going on the system, approve miniapps to be published, etc  refine, design, explain and create admin
+
+DASHBOARD
+users should have a way to manage their chats, agents, tasks, tools, and finances.  refine, design, explain and create users dashboard
+
+ EXPLORE
+
+ABOUT
+a detailed overview of the system, FAQs, etc 
+ACADEMY
+the admin can create lessons about the protocol

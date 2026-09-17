@@ -1,3 +1,4 @@
+import { createHash } from "node:crypto";
 import { createServerFn } from "@tanstack/react-start";
 import { authMiddleware } from "@/lib/auth/middleware";
 import { getSql } from "@/lib/db";
@@ -131,10 +132,11 @@ export const issueApiKey = createServerFn({ method: "POST" })
       .join("");
     const prefix = `sk_live_${rand.slice(0, 8)}`;
     const full = `sk_live_${rand}`;
+    const keyHash = createHash("sha256").update(full).digest("hex");
     const sql = await getSql();
     await sql`
-      insert into api_keys (user_id, label, prefix)
-      values (${context.userId}, ${data.label.trim() || "default"}, ${prefix})
+      insert into api_keys (user_id, label, prefix, key_hash)
+      values (${context.userId}, ${data.label.trim() || "default"}, ${prefix}, ${keyHash})
     `;
     return { prefix, full };
   });
